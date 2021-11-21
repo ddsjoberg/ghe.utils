@@ -2,6 +2,8 @@
 # ghe.utils
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/ddsjoberg/ghe.utils/workflows/R-CMD-check/badge.svg)](https://github.com/ddsjoberg/ghe.utils/actions)
+![runiverse-package](https://ddsjoberg.r-universe.dev/badges/ghe.utils)
 <!-- badges: end -->
 
 The goal of {ghe.utils} is to make it easier to work with an Enterprise instance of GitHub (GHE).
