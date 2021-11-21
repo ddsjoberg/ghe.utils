@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/ghe.utils-package.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/ghe_host.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/has_ghe_network_access.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/install_ghe.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/token.html</loc>
+  </url>
+  <url>
+    <loc>http://www.danieldsjoberg.com/ghe.utils/reference/use_ghe.html</loc>
+  </url>
+</urlset>
