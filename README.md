@@ -36,5 +36,5 @@ You can choose to add the GHE address on an environmental variable as well with 
   
 #### Other Options
 
-The {ghentr} project seeks to solve similar issues working with a GitHuB Enterprise instance, and offers another approach.
+The {ghentr} project seeks to solve similar issues working with a GitHub Enterprise instance, and offers another approach.
 Details at [https://ijlyttle.github.io/ghentr/](https://ijlyttle.github.io/ghentr/).
