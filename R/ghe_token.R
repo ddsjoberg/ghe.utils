@@ -11,6 +11,7 @@ NULL
 #' @export
 #' @rdname token
 ghe_token <- function() {
+  if (is.null(ghe_host())) return(invisible())
 
   # try to get MSK PAT stored with gitcreds
   token <-

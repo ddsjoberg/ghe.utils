@@ -9,5 +9,6 @@
 #' @seealso Review [`usethis::use_github()`] for details.
 
 use_ghe <- function(...) {
+  if (is.null(ghe_host())) return(invisible())
   usethis::use_github(..., host = ghe_host())
 }

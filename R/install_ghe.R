@@ -7,6 +7,7 @@
 #' @author Daniel D. Sjoberg
 
 install_ghe <- function(repo, ...) {
+  if (is.null(ghe_host())) return(invisible())
   remotes::install_github(
     repo,
     auth_token = ghe_token(),

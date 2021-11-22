@@ -1,6 +1,6 @@
 Package: ghe.utils
 Title: Utilities for Working with GitHub Enterprise
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(c("Daniel", "D."), "Sjoberg", , "danield.sjoberg@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0003-0862-2018"))
@@ -13,7 +13,7 @@ Imports:
     cli (>= 3.1.0),
     usethis (>= 2.1.3),
     gh (>= 1.3.0),
-    remotes
+    remotes (>= 2.4.1)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

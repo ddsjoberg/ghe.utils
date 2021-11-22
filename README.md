@@ -4,6 +4,7 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/ddsjoberg/ghe.utils/workflows/R-CMD-check/badge.svg)](https://github.com/ddsjoberg/ghe.utils/actions)
 ![runiverse-package](https://ddsjoberg.r-universe.dev/badges/ghe.utils)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of {ghe.utils} is to make it easier to work with an Enterprise instance of GitHub (GHE).
@@ -32,3 +33,8 @@ You can choose to add the GHE address on an environmental variable as well with 
   ```r
   ghe_host=<GHE Address>
   ```
+  
+#### Other Options
+
+The {ghentr} project seeks to solve similar issues working with a GitHuB Enterprise instance, and offers another approach.
+Details at [https://ijlyttle.github.io/ghentr/](https://ijlyttle.github.io/ghentr/).
