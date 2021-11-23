@@ -1,6 +1,6 @@
 Package: ghe.utils
 Title: Utilities for Working with GitHub Enterprise
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person(c("Daniel", "D."), "Sjoberg", , "danield.sjoberg@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0003-0862-2018"))
@@ -18,3 +18,6 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 URL: http://www.danieldsjoberg.com/ghe.utils
+Suggests: 
+    spelling
+Language: en-US

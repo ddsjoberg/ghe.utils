@@ -8,6 +8,13 @@
 \description{
 Set the location of your company's GitHub Enterprise address, and seamlessly interact with a GitHub Enterprise Instance from the R console.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://www.danieldsjoberg.com/ghe.utils}
+}
+
+}
 \author{
 \strong{Maintainer}: Daniel D. Sjoberg \email{danield.sjoberg@gmail.com} (\href{https://orcid.org/0000-0003-0862-2018}{ORCID}) [copyright holder]
 

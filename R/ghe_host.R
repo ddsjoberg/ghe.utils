@@ -3,7 +3,7 @@
 #' @export
 
 ghe_host <- function() {
-  host <- getOption("ghe_host") %||% Sys.getenv("ghe_host")
+  host <- getOption("ghe_host") %||% Sys.getenv("GHE_HOST")
   host <- switch(host != "", host)
 
   # check if GHE Host location has been set ------------------------------------
