@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ghe.utils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -69,24 +69,46 @@
 
 <p>The goal of {ghe.utils} is to make it easier to work with an Enterprise instance of GitHub (GHE). The package includes functions for setting a GHE PAT, installing packages from GHE, connect a local repo to GHE, and more.</p>
 <p>Follow the instructions below to get started.</p>
-<div id="1-installation" class="section level4">
-<h4 class="hasAnchor">
-<a href="#1-installation" class="anchor"></a>1. Installation</h4>
+<div id="installation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ghe.utils"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ddsjoberg <span class="op">=</span> <span class="st">'https://ddsjoberg.r-universe.dev'</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="2-set-ghe-location" class="section level4">
+<div id="using-the-gheutils-package" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-the-gheutils-package" class="anchor"></a>Using the {ghe.utils} Package</h3>
+<div id="1-set-ghe-location" class="section level4">
 <h4 class="hasAnchor">
-<a href="#2-set-ghe-location" class="anchor"></a>2. Set GHE Location</h4>
-<p>Set the location on your GHE instance with either an option or environmental variable. You can add the option to your <code>.Rprofile</code>. Open the file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code>, and add the following line.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<a href="#1-set-ghe-location" class="anchor"></a>1. Set GHE Location</h4>
+<p>After you install the {ghe.utils} package, you can use the functions only after the location of the GHE has been set. You can set the location with either an environmental variable or an option. Add the GHE address on an environmental variable by calling <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code> to open the environmental variables file, then adding the host location.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>GHE_HOST=<span class="er">&lt;</span>GHE Address<span class="op">&gt;</span></span></code></pre></div>
+<p>You can add the host location option to your <code>.Rprofile</code>. Open the file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code>, and add the following line.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>ghe_host <span class="op">=</span> <span class="st">"&lt;GHE Address&gt;"</span><span class="op">)</span></code></pre></div>
-<p>You can choose to add the GHE address on an environmental variable as well with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ghe_host=<span class="er">&lt;</span>GHE Address<span class="op">&gt;</span></span></code></pre></div>
 </div>
-<div id="other-options" class="section level4">
+<div id="2-use-gheutils-as-a-dependency" class="section level4">
 <h4 class="hasAnchor">
-<a href="#other-options" class="anchor"></a>Other Options</h4>
+<a href="#2-use-gheutils-as-a-dependency" class="anchor"></a>2. Use {ghe.utils} as a Dependency</h4>
+<p>If you prefer not to set the GHE host location, you can write your own package that wraps the functions in {ghe.utils}. For example, you can export a new function to install packages from you GHE instance. Wrap the {ghe.utils} function in <code><a href="https://withr.r-lib.org/reference/with_envvar.html">withr::with_envvar()</a></code> to temporarily set the <code>"GHE_HOST"</code> environmental variable.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#' Install Package from GHE</span>
+<span class="co">#'</span>
+<span class="co">#' @inheritParams ghe.utils::install_ghe</span>
+<span class="co">#' @export</span>
+<span class="va">install_github_my_company</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">repo</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_envvar.html">with_envvar</a></span><span class="op">(</span>
+    new <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>GHE_HOST <span class="op">=</span> <span class="st">"&lt;GHE Address&gt;"</span><span class="op">)</span>,
+    code <span class="op">=</span> <span class="fu">ghe.utils</span><span class="fu">::</span><span class="fu"><a href="reference/install_ghe.html">install_ghe</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="va">repo</span>, <span class="va">...</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>If you opt for this option, you’ll need to add the following line to the <code>DESCRIPTION</code> file to depend on the {ghe.utils} package.</p>
+<pre><code>Additional_repositories: https://ddsjoberg.r-universe.dev</code></pre>
+</div>
+</div>
+<div id="other-options" class="section level3">
+<h3 class="hasAnchor">
+<a href="#other-options" class="anchor"></a>Other Options</h3>
 <p>The {ghentr} project seeks to solve similar issues working with a GitHub Enterprise instance, and offers another approach. Details at <a href="https://ijlyttle.github.io/ghentr/">https://ijlyttle.github.io/ghentr/</a>.</p>
 </div>
 </div>

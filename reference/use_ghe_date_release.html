@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Install a package directly from GitHub Enterprise. — install_ghe • ghe.utils</title>
+<title>Make GHE Release — use_ghe_date_release • ghe.utils</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Install a package directly from GitHub Enterprise. — install_ghe" />
-<meta property="og:description" content="Install a package directly from GitHub Enterprise." />
+<meta property="og:title" content="Make GHE Release — use_ghe_date_release" />
+<meta property="og:description" content="Make GHE Release" />
 
 
 
@@ -106,74 +106,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Install a package directly from GitHub Enterprise.</h1>
+    <h1>Make GHE Release</h1>
     
-    <div class="hidden name"><code>install_ghe.Rd</code></div>
+    <div class="hidden name"><code>use_ghe_date_release.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Install a package directly from GitHub Enterprise.</p>
+    <p>Make GHE Release</p>
     </div>
 
-    <pre class="usage"><span class='fu'>install_ghe</span><span class='op'>(</span><span class='va'>repo</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>use_ghe_date_release</span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"&lt;release annotation&gt;"</span>, append_date <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>repo</th>
-      <td><p>Repository address in the format
-<code>username/repo[/subdir][@ref|#pull|@*release]</code>. Alternatively, you can
-specify <code>subdir</code> and/or <code>ref</code> using the respective parameters
-(see below); if both are specified, the values in <code>repo</code> take
-precedence.</p></td>
+      <th>name</th>
+      <td><p>Name of GHE release</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Arguments passed on to <code><a href='https://remotes.r-lib.org/reference/install_github.html'>remotes::install_github</a></code></p><dl>
-    <dt><code>ref</code></dt><dd><p>Desired git reference. Could be a commit, tag, or branch
-name, or a call to <code>github_pull()</code> or <code>github_release()</code>. Defaults to
-<code>"HEAD"</code>, which means the default branch on GitHub and for git remotes.
-See <a href='https://help.github.com/en/github/administering-a-repository/setting-the-default-branch'>setting-the-default-branch</a>
-for more details.</p></dd>
-    <dt><code>subdir</code></dt><dd><p>Subdirectory within repo that contains the R package.</p></dd>
-    <dt><code>dependencies</code></dt><dd><p>Which dependencies do you want to check?
-Can be a character vector (selecting from "Depends", "Imports",
-"LinkingTo", "Suggests", or "Enhances"), or a logical vector.<code>TRUE</code> is shorthand for "Depends", "Imports", "LinkingTo" and
-"Suggests". <code>NA</code> is shorthand for "Depends", "Imports" and "LinkingTo"
-and is the default. <code>FALSE</code> is shorthand for no dependencies (i.e.
-just check this package, not its dependencies).The value "soft" means the same as <code>TRUE</code>, "hard" means the same as <code>NA</code>.You can also specify dependencies from one or more additional fields,
-common ones include:
-<ul>
-<li><p>Config/Needs/website - for dependencies used in building the pkgdown site.</p></li>
-<li><p>Config/Needs/coverage for dependencies used in calculating test coverage.</p></li>
-</ul></p></dd>
-    <dt><code>upgrade</code></dt><dd><p>Should package dependencies be upgraded? One of "default", "ask", "always", or "never". "default"
-respects the value of the <code>R_REMOTES_UPGRADE</code> environment variable if set,
-and falls back to "ask" if unset. "ask" prompts the user for which out of
-date packages to upgrade. For non-interactive sessions "ask" is equivalent
-to "always". <code>TRUE</code> and <code>FALSE</code> are also accepted and correspond to
-"always" and "never" respectively.</p></dd>
-    <dt><code>force</code></dt><dd><p>Force installation, even if the remote state has not changed
-since the previous install.</p></dd>
-    <dt><code>quiet</code></dt><dd><p>If <code>TRUE</code>, suppress output.</p></dd>
-    <dt><code>build</code></dt><dd><p>If <code>TRUE</code> build the package before installing.</p></dd>
-    <dt><code>build_opts</code></dt><dd><p>Options to pass to <code>R CMD build</code>, only used when <code>build</code> is <code>TRUE</code>.</p></dd>
-    <dt><code>build_manual</code></dt><dd><p>If <code>FALSE</code>, don't build PDF manual ('--no-manual').</p></dd>
-    <dt><code>build_vignettes</code></dt><dd><p>If <code>FALSE</code>, don't build package vignettes ('--no-build-vignettes').</p></dd>
-    <dt><code>repos</code></dt><dd><p>A character vector giving repositories to use.</p></dd>
-    <dt><code>type</code></dt><dd><p>Type of package to <code>update</code>.</p></dd>
-  
-</dl></td>
+      <th>append_date</th>
+      <td><p>Logical indicating whether to append the date to the
+release name.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://remotes.r-lib.org/reference/install_github.html'>remotes::install_github()</a></code></p></div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Daniel D. Sjoberg</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
